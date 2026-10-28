@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+/* Paleta odvodená z loga Upright */
+@theme {
+  --color-ink: #141414;
+  --color-ink-2: #1e1e1e;
+  --color-ink-3: #2a2a2a;
+  --color-cream: #f4f1ea;
+  --color-cream-2: #e9e4d8;
+  --color-signal: #ff5a1f;
+  --color-signal-dark: #c2410c; /* oranžová pre text na krémovej (kontrast AA) */
+  --color-muted: #6b675f; /* sivá pre text na krémovej */
+  --color-muted-dark: #a8a49b; /* sivá pre text na tmavej */
+
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+  --animate-rec: rec 1.6s ease-in-out infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes rec {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.25;
+    }
+  }
+}
+
+html {
+  background: var(--color-ink);
+  color: var(--color-ink);
+  scroll-padding-top: 5rem;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--color-cream);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-ink);
+}
+
+/* Viditeľný focus pre klávesnicu */
+:focus-visible {
+  outline: 3px solid var(--color-signal);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Nadpisy: hrubé, mierne zúžené */
+.display {
+  font-weight: 850;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+  font-stretch: 92%;
+}
+
+/* Vlastný kurzor – iba ak je aktívny (desktop s myšou) */
+html.has-cursor,
+html.has-cursor * {
+  cursor: none !important;
+}
+html.has-cursor input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+html.has-cursor textarea {
+  cursor: text !important;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+/* Bez scrollbaru v carouseli */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Slider v kalkulačke */
+.range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2.75rem;
+  background: transparent;
+}
+.range::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--color-signal) var(--fill, 0%),
+    rgb(244 241 234 / 0.15) var(--fill, 0%)
+  );
+}
+.range::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: rgb(244 241 234 / 0.15);
+}
+.range::-moz-range-progress {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--color-signal);
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 26px;
+  height: 26px;
+  margin-top: -10px;
+  border-radius: 999px;
+  background: var(--color-cream);
+  border: 6px solid var(--color-signal);
+}
+.range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--color-cream);
+  border: 6px solid var(--color-signal);
+}
+.range:focus-visible {
+  outline: none;
+}
+.range:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px rgb(255 90 31 / 0.45);
+}
+.range:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 4px rgb(255 90 31 / 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.lenis) {
+    scroll-behavior: smooth;
+  }
+}

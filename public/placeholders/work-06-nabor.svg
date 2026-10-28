@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 960" width="540" height="960" role="img" aria-label="Video: nábor do výroby">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#141c26"/><stop offset="1" stop-color="#0d0d0d"/></linearGradient>
+<radialGradient id="a"><stop offset="0" stop-color="#7FA6D9" stop-opacity=".95"/><stop offset=".55" stop-color="#7FA6D9" stop-opacity=".45"/><stop offset="1" stop-color="#7FA6D9" stop-opacity="0"/></radialGradient>
+<linearGradient id="f" x1="0" y1="0" x2="0" y2="1"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".75"/></linearGradient></defs>
+<rect width="540" height="960" fill="url(#g)"/>
+<ellipse cx="270" cy="640" rx="230" ry="480" fill="url(#a)" opacity="1"/><ellipse cx="345" cy="330" rx="110" ry="260" fill="url(#a)" opacity="0.5"/>
+<g stroke="#F4F1EA" stroke-opacity=".07"><line x1="90" y1="0" x2="90" y2="960"/><line x1="180" y1="0" x2="180" y2="960"/><line x1="270" y1="0" x2="270" y2="960"/><line x1="360" y1="0" x2="360" y2="960"/><line x1="450" y1="0" x2="450" y2="960"/></g>
+<rect width="540" height="960" fill="url(#f)"/>
+<g font-family="Helvetica, Arial, sans-serif" fill="#F4F1EA">
+<text x="40" y="836" font-size="18" letter-spacing="3" opacity=".6">PLACEHOLDER · 9:16</text>
+<text x="40" y="880" font-size="28" font-weight="700">Video: nábor do výroby</text>
+</g></svg>
